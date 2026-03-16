@@ -1,0 +1,22 @@
+{
+  "name": "@robotico/mapper",
+  "version": "0.1.0",
+  "description": "Robotico Mapper — object mapping (e.g. API ↔ domain) for TypeScript.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist/**/*"],
+  "scripts": {
+    "build": "tsc",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:1})\""
+  },
+  "keywords": ["robotico", "mapper", "mapping", "dto"],
+  "author": "Robotico",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robotico-dev/robotico-mapper-typescript"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}
