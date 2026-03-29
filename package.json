@@ -55,8 +55,8 @@
     "url": "https://github.com/robotico-dev/robotico-mapper-typescript"
   },
   "devDependencies": {
-    "@robotico-dev/option": "file:../robotico-option-typescript",
-    "@robotico-dev/result": "file:../robotico-result-typescript",
+    "@robotico-dev/option": "^1.0.1",
+    "@robotico-dev/result": "^1.0.1",
     "@cyclonedx/cyclonedx-npm": "^4.0.0",
     "@eslint/js": "^9.0.0",
     "@stryker-mutator/core": "^8.7.1",
