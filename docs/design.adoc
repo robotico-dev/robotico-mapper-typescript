@@ -1,0 +1,9 @@
+= @robotico-dev/mapper — design
+
+== Goals
+
+Explicit, testable mapping: `createMapper`, async mapping, batch helpers, and optional concurrency limits. No reflection — maps are plain functions.
+
+== Quality bar
+
+link:../../docs/adr/0001-quality-bar.md[ADR 0001].
