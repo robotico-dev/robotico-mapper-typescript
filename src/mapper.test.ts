@@ -149,6 +149,17 @@ describe("Option mapping", () => {
     expect(m.mapManyCompact([1, -1, 2])).toEqual(["1", "2"]);
   });
 
+  it("createMapperToOption mapMany returns Options in order", () => {
+    const m = createMapperToOption((n: number) =>
+      n >= 0 ? some(String(n)) : none
+    );
+    const opts = m.mapMany([-1, 0, 2]);
+    expect(opts).toHaveLength(3);
+    expect(isNone(opts[0])).toBe(true);
+    expect(isSome(opts[1]) && opts[1].value).toBe("0");
+    expect(isSome(opts[2]) && opts[2].value).toBe("2");
+  });
+
   it("mapThroughOptionAsync", async () => {
     const m = createMapperAsync(async (n: number) => String(n));
     expect(isNone(await mapThroughOptionAsync(m, none))).toBe(true);
@@ -184,5 +195,16 @@ describe("Option mapping", () => {
     const two = await m.map(2);
     expect(isSome(two) && two.value).toBe("2");
     await expect(m.mapManyCompact([1, 2, 3, 4])).resolves.toEqual(["2", "4"]);
+  });
+
+  it("createMapperAsyncToOption mapMany returns Options in order", async () => {
+    const m = createMapperAsyncToOption(async (n: number) =>
+      n % 2 === 0 ? some(String(n)) : none
+    );
+    const opts = await m.mapMany([1, 2, 3]);
+    expect(opts).toHaveLength(3);
+    expect(isNone(opts[0])).toBe(true);
+    expect(isSome(opts[1]) && opts[1].value).toBe("2");
+    expect(isNone(opts[2])).toBe(true);
   });
 });
