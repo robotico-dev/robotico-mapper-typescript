@@ -14,9 +14,11 @@ export default defineConfig({
         "**/index.ts",
         "**/i-mapper.ts",
         "**/i-mapper-async.ts",
+        "**/i-mapper-to-option.ts",
+        "**/i-mapper-async-to-option.ts",
         "**/mapper-async-concurrency-options.ts",
       ],
-      thresholds: { branches: 95, functions: 95, lines: 95, statements: 95 },
+      thresholds: { branches: 100, functions: 100, lines: 100, statements: 100 },
     },
   },
 });
